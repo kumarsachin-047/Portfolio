@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sachin Kumar — Business Banking · ICICI Bank</title>
+<meta name="description" content="Sachin Kumar — Business Banking at ICICI Bank, IIM Ranchi MBA '26. Finance, strategy, and data-driven decision-making." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E2439;
+    --ink-soft:#16324E;
+    --paper:#FAF9F6;
+    --surface:#FFFFFF;
+    --slate:#566573;
+    --slate-2:#7C8896;
+    --brass:#B37E2A;
+    --brass-soft:#C9932F;
+    --line:#E7E3DB;
+    --line-2:#EFEBE3;
+    --maxw:1080px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(179,126,42,.22)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,249,246,.82);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:66px;
+  }
+  .brand{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;font-size:1.02rem;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand .mark{
+    width:26px;height:26px;border-radius:7px;
+    background:var(--ink);color:var(--paper);
+    display:grid;place-items:center;
+    font-size:.78rem;font-weight:700;letter-spacing:.02em;
+  }
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{
+    font-size:.9rem;color:var(--slate);font-weight:500;
+    transition:color .18s ease;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{
+    font-size:.88rem;font-weight:500;
+    padding:9px 16px;border-radius:9px;
+    background:var(--ink);color:var(--paper)!important;
+    transition:transform .18s ease,background .18s ease;
+  }
+  .nav-cta:hover{background:#16324e;transform:translateY(-1px)}
+  @media(max-width:720px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 64px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.82rem;font-weight:500;color:var(--slate);
+    padding:6px 13px;border:1px solid var(--line);
+    border-radius:100px;background:var(--surface);
+    margin-bottom:26px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);
+    box-shadow:0 0 0 4px rgba(179,126,42,.14)}
+  .hero h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(2.7rem,6.2vw,4.6rem);
+    line-height:1.02;letter-spacing:-.03em;
+    margin-bottom:22px;
+  }
+  .hero h1 .role{
+    display:block;color:var(--slate);font-weight:500;
+    font-size:clamp(1.1rem,2.4vw,1.5rem);letter-spacing:-.01em;
+    margin-top:14px;
+  }
+  .lead{
+    max-width:56ch;font-size:1.08rem;color:var(--slate);
+    margin-bottom:34px;
+  }
+  .credentials{
+    display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;
+  }
+  .cred{
+    font-size:.85rem;font-weight:500;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line);
+    padding:8px 14px;border-radius:9px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;font-weight:500;
+    padding:13px 22px;border-radius:11px;
+    transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:#16324e;transform:translateY(-2px);
+    box-shadow:0 10px 26px -12px rgba(14,36,57,.55)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+  .btn-ghost:hover{border-color:var(--slate-2);transform:translateY(-2px)}
+
+  /* ---------- IMPACT STRIP ---------- */
+  .impact{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    background:var(--surface);
+  }
+  .impact-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .stat{padding:34px 24px;border-left:1px solid var(--line-2)}
+  .stat:first-child{border-left:none}
+  .stat .num{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(1.9rem,3.6vw,2.5rem);letter-spacing:-.02em;
+    color:var(--ink);line-height:1;
+  }
+  .stat .num small{color:var(--brass);font-size:.62em;font-weight:600}
+  .stat .cap{font-size:.85rem;color:var(--slate);margin-top:10px;max-width:22ch}
+  @media(max-width:820px){.impact-grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(3){border-left:none}
+    .stat:nth-child(n+3){border-top:1px solid var(--line-2)}}
+  @media(max-width:460px){.impact-grid{grid-template-columns:1fr}
+    .stat{border-left:none;border-top:1px solid var(--line-2)}
+    .stat:first-child{border-top:none}}
+
+  /* ---------- SECTIONS ---------- */
+  section.block{padding:78px 0}
+  .sec-head{margin-bottom:44px;max-width:60ch}
+  .sec-label{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.9rem;font-weight:600;color:var(--brass);
+    margin-bottom:12px;
+  }
+  .sec-head h2{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(1.7rem,3.4vw,2.3rem);letter-spacing:-.02em;
+    line-height:1.12;
+  }
+  .sec-head p{color:var(--slate);font-size:1.05rem;margin-top:16px}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+  .about-body p{color:var(--slate);font-size:1.05rem;margin-bottom:18px;max-width:64ch}
+  .about-body p strong{color:var(--ink);font-weight:600}
+  .side-card{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px;
+  }
+  .side-card h3{font-family:'Space Grotesk',sans-serif;font-size:.95rem;
+    font-weight:600;margin-bottom:18px}
+  .kv{display:flex;justify-content:space-between;gap:16px;
+    padding:12px 0;border-top:1px solid var(--line-2);font-size:.92rem}
+  .kv:first-of-type{border-top:none}
+  .kv span:first-child{color:var(--slate)}
+  .kv span:last-child{font-weight:500;text-align:right}
+  @media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:32px}}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:34px}
+  .timeline::before{
+    content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--line),var(--line-2));
+  }
+  .tl-item{position:relative;padding-bottom:40px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-34px;top:6px;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--surface);border:2px solid var(--slate-2);
+  }
+  .tl-item.now::before{border-color:var(--brass);
+    background:var(--brass);box-shadow:0 0 0 5px rgba(179,126,42,.15)}
+  .tl-top{display:flex;flex-wrap:wrap;justify-content:space-between;
+    align-items:baseline;gap:6px 18px;margin-bottom:6px}
+  .tl-role{font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:1.18rem;letter-spacing:-.01em}
+  .tl-co{color:var(--brass);font-weight:600;font-size:1.18rem}
+  .tl-meta{font-size:.86rem;color:var(--slate-2);
+    display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+  .tl-meta span{display:inline-flex;align-items:center;gap:6px}
+  .tl-list{list-style:none;display:grid;gap:9px}
+  .tl-list li{position:relative;padding-left:22px;color:var(--slate);
+    font-size:.98rem;max-width:70ch}
+  .tl-list li::before{content:"";position:absolute;left:2px;top:9px;
+    width:7px;height:7px;border-radius:2px;
+    background:var(--line);border:1px solid var(--slate-2)}
+  .tl-list li b{color:var(--ink);font-weight:600}
+
+  /* ---------- EDUCATION + SKILLS ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:800px){.split{grid-template-columns:1fr;gap:44px}}
+  .edu-item{padding:20px 0;border-top:1px solid var(--line)}
+  .edu-item:first-child{border-top:none;padding-top:0}
+  .edu-item h4{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;
+    font-weight:600;margin-bottom:4px}
+  .edu-item .deg{color:var(--slate);font-size:.95rem}
+  .edu-item .yr{color:var(--slate-2);font-size:.85rem;margin-top:4px}
+  .chip-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .chip{font-size:.88rem;font-weight:500;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line);
+    padding:9px 15px;border-radius:100px}
+  .chip.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .mini-label{font-size:.82rem;color:var(--slate-2);font-weight:600;
+    margin:26px 0 12px;font-family:'Space Grotesk',sans-serif}
+  .mini-label:first-child{margin-top:0}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--ink);color:var(--paper)}
+  .contact .wrap{padding-top:82px;padding-bottom:82px}
+  .contact h2{font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(2rem,4.6vw,3.1rem);letter-spacing:-.02em;
+    line-height:1.06;margin-bottom:20px;max-width:16ch}
+  .contact p{color:#AFC0D0;font-size:1.1rem;max-width:52ch;margin-bottom:36px}
+  .contact-actions{display:flex;flex-wrap:wrap;gap:14px}
+  .btn-brass{background:var(--brass);color:#fff}
+  .btn-brass:hover{background:var(--brass-soft);transform:translateY(-2px)}
+  .btn-outline{border:1px solid rgba(255,255,255,.28);color:var(--paper)}
+  .btn-outline:hover{border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
+  .contact-meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:52px;
+    padding-top:30px;border-top:1px solid rgba(255,255,255,.14)}
+  .contact-meta div .l{font-size:.78rem;color:#8CA0B4;margin-bottom:5px}
+  .contact-meta div .v{font-size:.98rem;font-weight:500}
+  .contact-meta a.v:hover{color:var(--brass-soft)}
+
+  footer{background:var(--ink);color:#7C93A8;
+    border-top:1px solid rgba(255,255,255,.1)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;
+    gap:14px;padding:26px 28px;font-size:.85rem}
+
+  /* motion */
+  .reveal{opacity:0;transform:translateY(16px);
+    transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important}
+    .reveal{opacity:1!important;transform:none!important;transition:none}
+    .btn,.nav-cta,.chip{transition:none}
+  }
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="mark">SK</span> Sachin Kumar</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow reveal"><span class="dot"></span> Business Banking · ICICI Bank · Greater Delhi Area</span>
+      <h1 class="reveal">Sachin Kumar
+        <span class="role">Finance &amp; strategy professional turning data into decisions that move revenue.</span>
+      </h1>
+      <p class="lead reveal">B.Com in Accounting &amp; Finance, MBA from IIM Ranchi, and hands-on
+        experience across banking, financial analysis, and product. I work at the intersection
+        of numbers and customers — building solutions grounded in evidence.</p>
+      <div class="credentials reveal">
+        <span class="cred">ICICI Bank — PPO</span>
+        <span class="cred">IIM Ranchi · MBA '26</span>
+        <span class="cred">3× National Case Competition Podium</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="https://www.linkedin.com/in/sachinkumar20" target="_blank" rel="noopener" class="btn btn-ghost">View LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact">
+    <div class="wrap">
+      <div class="impact-grid">
+        <div class="stat reveal">
+          <div class="num">32.6<small>%</small></div>
+          <div class="cap">YoY revenue growth driven through targeted campaigns (₹12.67L)</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num">40<small>%</small></div>
+          <div class="cap">Increase in monthly sales leading a 15-member team</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num">50<small>%</small></div>
+          <div class="cap">Faster client turnaround, leading a team of 10 interns</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num">60<small>+</small></div>
+          <div class="cap">Banks &amp; PFM apps benchmarked to find feature gaps</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-body reveal">
+          <div class="sec-label">About</div>
+          <p>I'm a finance professional with a strong interest in <strong>strategic problem-solving</strong>
+            and customer-centric decision-making. After completing my B.Com in Accounting &amp; Finance
+            at Goenka College of Commerce, I earned my <strong>MBA from IIM Ranchi</strong>.</p>
+          <p>Along the way I competed in national case competitions with <strong>multiple podium finishes</strong>,
+            sharpening how I think through ambiguous problems, work in teams, and present under pressure.</p>
+          <p>Today I'm in <strong>Business Banking at ICICI Bank</strong>, working across client relationship
+            management, financial solutions, and business development — always driven by continuous learning
+            and the goal of creating meaningful, measurable impact.</p>
+        </div>
+        <aside class="side-card reveal">
+          <h3>At a glance</h3>
+          <div class="kv"><span>Current role</span><span>Manager 1, ICICI Bank</span></div>
+          <div class="kv"><span>Function</span><span>Business Banking</span></div>
+          <div class="kv"><span>Based in</span><span>Delhi, India</span></div>
+          <div class="kv"><span>MBA</span><span>IIM Ranchi, 2026</span></div>
+          <div class="kv"><span>Focus</span><span>Finance · Strategy · Product</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="block" id="experience" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-label">Experience</div>
+        <h2>A track record built across banking, finance, and product</h2>
+        <p>Roles where I owned outcomes — analysing statements, shaping product, and driving growth.</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="tl-item now reveal">
+          <div class="tl-top">
+            <span class="tl-role">Manager 1</span>
+            <span class="tl-co">ICICI Bank</span>
+          </div>
+          <div class="tl-meta">
+            <span>Apr 2026 — Present</span><span>Delhi, India</span><span>Business Banking</span>
+          </div>
+          <ul class="tl-list">
+            <li>Managing <b>client relationships and financial solutions</b> within the Business Banking vertical, supporting business development across the portfolio.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-role">Product Intern (Summer)</span>
+            <span class="tl-co">ICICI Bank</span>
+          </div>
+          <div class="tl-meta">
+            <span>Apr 2025 — May 2025</span><span>Hyderabad</span>
+          </div>
+          <ul class="tl-list">
+            <li>Benchmarked <b>30 Indian &amp; global banks and 30+ PFM apps</b> to identify feature gaps.</li>
+            <li>Formulated <b>user personas</b> and mapped 6-stage journeys to drive product positioning.</li>
+            <li>Evaluated and prioritised <b>8 product features</b> using a structured 4-parameter framework.</li>
+            <li>Prototyped <b>7 UI screens</b> to streamline user interaction and support development.</li>
+            <li>Mapped user behaviour across 5 tools and engineered a <b>unified dashboard experience</b>.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-role">Finance Intern</span>
+            <span class="tl-co">Upendra Kumar &amp; Co.</span>
+          </div>
+          <div class="tl-meta">
+            <span>Nov 2023 — Jul 2024</span><span>Bihar, India</span>
+          </div>
+          <ul class="tl-list">
+            <li>Analysed and reviewed <b>20+ financial statements</b>, driving 25% year-on-year growth.</li>
+            <li>Assessed statements of an MSME enterprise with a <b>₹2.5 crore turnover</b>.</li>
+            <li>Improved reporting accuracy by <b>20% for 10+ clients</b> through meticulous analysis.</li>
+            <li>Led a team of 10 interns, cutting client-deliverable turnaround time by <b>50%</b>.</li>
+            <li>Partnered with clients to resolve accounting discrepancies and improve financial practices.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-role">Management Intern</span>
+            <span class="tl-co">Azucation</span>
+          </div>
+          <div class="tl-meta">
+            <span>Jan 2024 — Mar 2024</span>
+          </div>
+          <ul class="tl-list">
+            <li>Managed <b>100+ mentors and 400+ mentees</b> with strong organisational rigour.</li>
+            <li>Facilitated mock interviews and knowledge-transfer sessions to boost MBA prep.</li>
+            <li>Grew program revenue by <b>32.63% YoY (₹12.67L)</b> via targeted social campaigns across Instagram, WhatsApp &amp; Telegram.</li>
+            <li>Collaborated with the social team to publish <b>100 articles</b>, increasing visibility.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-role">Marketing Intern</span>
+            <span class="tl-co">Shani Enterprises</span>
+          </div>
+          <div class="tl-meta">
+            <span>Aug 2023 — Nov 2023</span>
+          </div>
+          <ul class="tl-list">
+            <li>Supervised a focused team of 15, achieving a <b>40% increase in monthly sales</b>.</li>
+            <li>Coordinated with <b>55 retailers</b> for smooth supply chain and consistent distribution.</li>
+            <li>Developed and implemented a strategic plan that grew market influence.</li>
+            <li>Administered inventory and optimised SKUs, boosting operational efficiency and profitability.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + SKILLS -->
+  <section class="block" id="education" style="padding-top:0">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <div class="sec-head" style="margin-bottom:28px">
+            <div class="sec-label">Education</div>
+            <h2>Academic foundation</h2>
+          </div>
+          <div class="edu-item">
+            <h4>Indian Institute of Management, Ranchi</h4>
+            <div class="deg">Master of Business Administration (MBA)</div>
+            <div class="yr">Jun 2024 — Mar 2026</div>
+          </div>
+          <div class="edu-item">
+            <h4>Goenka College of Commerce &amp; Business Administration</h4>
+            <div class="deg">B.Com — Accounting and Finance</div>
+            <div class="yr">Jul 2019 — Aug 2022</div>
+          </div>
+          <div class="edu-item">
+            <h4>St. Paul's High School</h4>
+            <div class="deg">Secondary Education</div>
+            <div class="yr">May 2017 — May 2019</div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="sec-head" style="margin-bottom:28px">
+            <div class="sec-label">Capabilities</div>
+            <h2>Skills &amp; certifications</h2>
+          </div>
+          <div class="mini-label">Top skills</div>
+          <div class="chip-group">
+            <span class="chip">Account Management</span>
+            <span class="chip">Financial Reporting</span>
+            <span class="chip">Financial Accounting</span>
+            <span class="chip">Financial Analysis</span>
+            <span class="chip">Business Development</span>
+            <span class="chip">Product Strategy</span>
+          </div>
+          <div class="mini-label">Certifications</div>
+          <div class="chip-group">
+            <span class="chip solid">Financial Analyst Program</span>
+          </div>
+          <div class="mini-label">Recognition</div>
+          <div class="chip-group">
+            <span class="chip">3× National Case Competition Podium</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2 class="reveal">Let's build something that measures up.</h2>
+      <p class="reveal">Open to conversations around finance, banking, strategy, and product roles.
+        The fastest way to reach me is email or LinkedIn.</p>
+      <div class="contact-actions reveal">
+        <a href="mailto:kumarsachinsps@gmail.com" class="btn btn-brass">Email me</a>
+        <a href="https://www.linkedin.com/in/sachinkumar20" target="_blank" rel="noopener" class="btn btn-outline">Connect on LinkedIn</a>
+      </div>
+      <div class="contact-meta reveal">
+        <div><div class="l">Email</div><a class="v" href="mailto:kumarsachinsps@gmail.com">kumarsachinsps@gmail.com</a></div>
+        <div><div class="l">Location</div><div class="v">Hajipur, Bihar · Greater Delhi Area</div></div>
+        <div><div class="l">LinkedIn</div><a class="v" href="https://www.linkedin.com/in/sachinkumar20" target="_blank" rel="noopener">in/sachinkumar20</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Sachin Kumar</span>
+    <span>Business Banking · ICICI Bank · IIM Ranchi MBA '26</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // Single orchestrated reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay = (Math.min(i,6)*40)+'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
